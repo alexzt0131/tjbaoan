@@ -1,0 +1,41 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Thu Nov 30 22:12:42 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1d56030
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1d56030 pid: 5986 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 5986, cores: 1)
+spawned uWSGI worker 2 (pid: 5988, cores: 1)
+spawned uWSGI worker 3 (pid: 5989, cores: 1)
+spawned uWSGI worker 4 (pid: 5990, cores: 1)
+[pid: 5988|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 14:18:37 2017] GET /index/ => generated 9486 bytes in 32 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 5988|app: 0|req: 2/2] 118.28.63.199 () {38 vars in 654 bytes} [Thu Nov 30 14:18:38 2017] GET /favicon.ico => generated 2182 bytes in 6 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5988|app: 0|req: 3/3] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 14:21:58 2017] GET /index/ => generated 9486 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 5988|app: 0|req: 4/4] 118.28.63.199 () {42 vars in 727 bytes} [Thu Nov 30 14:24:34 2017] GET /joinus => generated 15558 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 5988|app: 0|req: 5/5] 118.28.63.199 () {42 vars in 727 bytes} [Thu Nov 30 14:24:37 2017] GET /index/ => generated 9486 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 5988|app: 0|req: 6/6] 118.28.63.199 () {42 vars in 727 bytes} [Thu Nov 30 14:24:40 2017] GET /joinus => generated 15558 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 5988|app: 0|req: 7/7] 118.28.63.199 () {42 vars in 727 bytes} [Thu Nov 30 14:24:43 2017] GET /index/ => generated 9486 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
