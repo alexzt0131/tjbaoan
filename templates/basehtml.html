@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% block head %}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{ com_name }}</title>
+<link href="{% static 'css/style.css' %}" rel=stylesheet>
+<script type="text/javascript" src="{% static 'js/jquery-1.7.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/index_brand.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.superslide.js' %}"></script>
+<!--[if IE 6]><script type="text/javascript" src="{% static 'js/dd_belatedpng.js' %}"></script>
+<script type="text/javascript">
+		DD_belatedPNG.fix('img');
+	</script>
+<![endif]-->
+
+</head>
+{% endblock %}
+{% block header %}
+    <div class="header">
+  <div class="header01">
+    <div class="logo"><a href="" ><img src="{% static 'images/logo/logo.png' %}" width="218" height="65" class="png" /></a></div>
+    <div class="nav">
+     <ul>
+       <li><a href="/index">首页<span>HOME</span></a></li>
+         <li><a href="#关于我们">关于我们</a><span>ABOUT US</span></li>
+         <li><a href="#新闻中心">新闻中心</a><span>NEWS</span></li>
+         <li><a href="#案例展示">案例展示</a><span>CASE</span></li>
+         <li><a href="/joinus">加入我们<span>JOIN US</span></a></li>
+         <li><a href="#联系我们">联系我们</a><span>CONTACT</span></li>
+{#       <li><a href="about.html">关于我们<span>ABOUT US</span></a></li>#}
+{#       <li><a href="list.html">新闻中心<span>NEWS</span></a></li>#}
+{#       <li><a href="product.html">案例展示<span>CASE</span></a></li>#}
+
+{#       <li><a href="">联系我们<span>CONTACT</span></a></li>#}
+     </ul>
+    </div>
+    <div class="tel">{{ CONTACT_TEL }}<br /></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block body %}
+
+
+<body>
+
+
+{% endblock %}
+
+{% block scirpt %}
+{#    <script type="text/javascript" src="{% static 'js/banner.js' %}"></script>#}
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <div class="footer01">
+            <a name="联系我们"></a>
+            <div class="footer02">
+             地址：天津市西青经济技术开发区鑫源道11号
+             &nbsp邮编：300385
+                <br />
+             热线电话：022-58576280
+             手机：13352096270（殷先生） 13512271307（齐先生）<br />
+             版权所有：天津消安保安服务有限公司<br />
+             <a href="">ICP备案编号：XXXX</a>&nbsp;&nbsp;&nbsp;
+    {#         技术支持：<a href="">某某网络公司</a>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
