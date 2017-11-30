@@ -1,0 +1,331 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:08:27 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1faa010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1faa010 pid: 12003 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12003, cores: 1)
+spawned uWSGI worker 2 (pid: 12008, cores: 1)
+spawned uWSGI worker 3 (pid: 12009, cores: 1)
+spawned uWSGI worker 4 (pid: 12010, cores: 1)
+[pid: 12008|app: 0|req: 1/1] 118.28.63.199 () {40 vars in 667 bytes} [Thu Nov 30 16:08:34 2017] GET / => generated 74 bytes in 20 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 12010|app: 0|req: 1/2] 118.28.63.199 () {42 vars in 698 bytes} [Thu Nov 30 16:08:35 2017] GET / => generated 74 bytes in 20 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 12008|app: 0|req: 2/3] 118.28.63.199 () {40 vars in 679 bytes} [Thu Nov 30 16:08:38 2017] GET /index/ => generated 9611 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12008|app: 0|req: 3/4] 118.28.63.199 () {40 vars in 692 bytes} [Thu Nov 30 16:08:38 2017] GET /index/%7B/static/images/logo/logo.png => generated 9611 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12010|app: 0|req: 2/5] 118.28.63.199 () {40 vars in 692 bytes} [Thu Nov 30 16:08:39 2017] GET /index/%7B/static/images/logo/logo.png => generated 9611 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:08:59 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x13eb010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x13eb010 pid: 12037 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12037, cores: 1)
+spawned uWSGI worker 2 (pid: 12042, cores: 1)
+spawned uWSGI worker 3 (pid: 12043, cores: 1)
+spawned uWSGI worker 4 (pid: 12044, cores: 1)
+[pid: 12043|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:09:01 2017] GET /index/ => generated 9610 bytes in 35 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12042|app: 0|req: 1/2] 118.28.63.199 () {40 vars in 690 bytes} [Thu Nov 30 16:09:01 2017] GET /index/%7Bstatic/images/logo/logo.png => generated 9610 bytes in 34 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12043|app: 0|req: 2/3] 118.28.63.199 () {40 vars in 690 bytes} [Thu Nov 30 16:09:01 2017] GET /index/%7Bstatic/images/logo/logo.png => generated 9610 bytes in 5 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12042|app: 0|req: 2/4] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:09:02 2017] GET /index/ => generated 9610 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12043|app: 0|req: 3/5] 118.28.63.199 () {42 vars in 721 bytes} [Thu Nov 30 16:09:02 2017] GET /index/%7Bstatic/images/logo/logo.png => generated 9610 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12042|app: 0|req: 3/6] 118.28.63.199 () {42 vars in 721 bytes} [Thu Nov 30 16:09:02 2017] GET /index/%7Bstatic/images/logo/logo.png => generated 9610 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:10:34 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1c0a010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1c0a010 pid: 12132 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12132, cores: 1)
+spawned uWSGI worker 2 (pid: 12137, cores: 1)
+spawned uWSGI worker 3 (pid: 12138, cores: 1)
+spawned uWSGI worker 4 (pid: 12139, cores: 1)
+[pid: 12132|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:10:36 2017] GET /index/ => generated 9624 bytes in 27 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12137|app: 0|req: 1/2] 118.28.63.199 () {40 vars in 718 bytes} [Thu Nov 30 16:10:36 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 25 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12138|app: 0|req: 1/3] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:10:37 2017] GET /index/ => generated 9624 bytes in 24 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12137|app: 0|req: 2/4] 118.28.63.199 () {42 vars in 749 bytes} [Thu Nov 30 16:10:37 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12139|app: 0|req: 1/5] 118.28.63.199 () {42 vars in 749 bytes} [Thu Nov 30 16:10:37 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12137|app: 0|req: 3/6] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:11:33 2017] GET /index/ => generated 9624 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12138|app: 0|req: 2/7] 118.28.63.199 () {40 vars in 718 bytes} [Thu Nov 30 16:11:34 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12139|app: 0|req: 2/8] 118.28.63.199 () {42 vars in 749 bytes} [Thu Nov 30 16:11:34 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12137|app: 0|req: 4/9] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:11:34 2017] GET /index/ => generated 9624 bytes in 2 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12138|app: 0|req: 3/10] 118.28.63.199 () {42 vars in 749 bytes} [Thu Nov 30 16:11:35 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12139|app: 0|req: 3/11] 118.28.63.199 () {42 vars in 749 bytes} [Thu Nov 30 16:11:35 2017] GET /index/%7B/root/tjbaoan/static/images/logo/logo.png => generated 9624 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:11:50 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1ba3010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1ba3010 pid: 12201 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12201, cores: 1)
+spawned uWSGI worker 2 (pid: 12206, cores: 1)
+spawned uWSGI worker 3 (pid: 12207, cores: 1)
+spawned uWSGI worker 4 (pid: 12208, cores: 1)
+[pid: 12206|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:11:51 2017] GET /index/ => generated 9610 bytes in 26 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:11:54 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x23c8010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x23c8010 pid: 12224 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12224, cores: 1)
+spawned uWSGI worker 2 (pid: 12229, cores: 1)
+spawned uWSGI worker 3 (pid: 12230, cores: 1)
+spawned uWSGI worker 4 (pid: 12231, cores: 1)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:12:08 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x214d010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x214d010 pid: 12274 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12274, cores: 1)
+spawned uWSGI worker 2 (pid: 12280, cores: 1)
+spawned uWSGI worker 3 (pid: 12281, cores: 1)
+spawned uWSGI worker 4 (pid: 12282, cores: 1)
+[pid: 12280|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:12:10 2017] GET /index/ => generated 9623 bytes in 27 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12282|app: 0|req: 1/2] 118.28.63.199 () {40 vars in 700 bytes} [Thu Nov 30 16:12:10 2017] GET /root/tjbaoan/static/images/logo/logo.png => generated 114 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 12280|app: 0|req: 2/3] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:12:11 2017] GET /index/ => generated 9623 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12281|app: 0|req: 1/4] 118.28.63.199 () {42 vars in 731 bytes} [Thu Nov 30 16:12:11 2017] GET /root/tjbaoan/static/images/logo/logo.png => generated 114 bytes in 26 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 12280|app: 0|req: 3/5] 118.28.63.199 () {42 vars in 731 bytes} [Thu Nov 30 16:12:11 2017] GET /root/tjbaoan/static/images/logo/logo.png => generated 114 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:12:43 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x2215010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2215010 pid: 12308 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12308, cores: 1)
+spawned uWSGI worker 2 (pid: 12313, cores: 1)
+spawned uWSGI worker 3 (pid: 12314, cores: 1)
+spawned uWSGI worker 4 (pid: 12315, cores: 1)
+[pid: 12313|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:12:44 2017] GET /index/ => generated 9742 bytes in 25 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:16:47 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xb8e010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0xb8e010 pid: 12490 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 12490, cores: 1)
+spawned uWSGI worker 2 (pid: 12495, cores: 1)
+spawned uWSGI worker 3 (pid: 12496, cores: 1)
+spawned uWSGI worker 4 (pid: 12497, cores: 1)
+[pid: 12495|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:16:51 2017] GET /index/ => generated 9742 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 12497|app: 0|req: 1/2] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:16:52 2017] GET /index/ => generated 9742 bytes in 28 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Dec  1 00:37:09 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan/templates
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1956010
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1956010 pid: 13483 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 13483, cores: 1)
+spawned uWSGI worker 2 (pid: 13488, cores: 1)
+spawned uWSGI worker 3 (pid: 13489, cores: 1)
+spawned uWSGI worker 4 (pid: 13490, cores: 1)
+[pid: 13488|app: 0|req: 1/1] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:37:12 2017] GET /index/ => generated 9487 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 13488|app: 0|req: 2/2] 118.28.63.199 () {42 vars in 710 bytes} [Thu Nov 30 16:37:15 2017] GET /index/ => generated 9487 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 13488|app: 0|req: 3/3] 118.28.63.199 () {42 vars in 727 bytes} [Thu Nov 30 16:37:21 2017] GET /joinus => generated 15559 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
