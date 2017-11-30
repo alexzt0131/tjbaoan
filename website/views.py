@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from tjbaoan import settings
-from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATICFILES_DIRS
+from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATICFILES_DIRS, STATIC_ROOT
 from tools.itools import itools
 
 
@@ -31,7 +31,7 @@ def index(request):
         'title': 'title'
     }
 
-    rootdir = STATICFILES_DIRS[0] + '/images/xuanchuan/'  # 指明被遍历的文件夹
+    rootdir = STATIC_ROOT + '/images/xuanchuan/'  # 指明被遍历的文件夹
     # print(rootdir)
     # print(os.path.exists(rootdir))
     file_names = itools.retrive(rootdir=rootdir)['files']
@@ -42,7 +42,7 @@ def index(request):
 def join_us(request):
     # return HttpResponse('asdf')
     ret = {}
-    with open(STATICFILES_DIRS[0] + '/docs/zhaopin.txt') as f:
+    with open(STATIC_ROOT + '/docs/zhaopin.txt') as f:
         lines = f.readlines()
     ret['lines'] = lines
     return render(request, 'joinus.html', ret)

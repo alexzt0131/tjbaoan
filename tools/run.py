@@ -1,15 +1,16 @@
 import os, django
 
-from security.tools.itools import itools
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "security_tj.settings")# project_name 项目名称
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tjbaoan.settings")# project_name 项目名称
 django.setup()
 
+from tjbaoan.settings import BASE_DIR
 
 
-from security_tj.settings import STATICFILES_DIRS, BASE_DIR
 
 if __name__ == '__main__':
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+    print(STATIC_ROOT)
     pass
 
     # with open(STATICFILES_DIRS[0] + '/docs/zhaopin.txt') as f:
