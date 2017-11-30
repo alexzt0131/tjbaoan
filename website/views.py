@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from tjbaoan import settings
-from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATICFILES_DIRS, STATIC_ROOT
+from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATIC_ROOT
 from tools.itools import itools
 
 

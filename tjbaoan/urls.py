@@ -23,3 +23,5 @@ urlpatterns = [
     url(r'^index/', views.index),
     url(r'^joinus$', views.join_us),
 ]
+
+
