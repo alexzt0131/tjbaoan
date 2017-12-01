@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
+    # 'website',
+    # 'tjbaoan'
 ]
+
+AUTH_USER_MODEL = 'website.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,7 +85,7 @@ WSGI_APPLICATION = 'tjbaoan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'security',
+        'NAME': 'tjbaoan',
 	    'USER':'root',
         'PASSWORD':'Aa123456',
         'HOST':'127.0.0.1',

@@ -1,9 +1,17 @@
 import datetime
 import uuid
-
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+
+class User(AbstractUser):     #继承AbstractUser
+    desc = models.TextField()
+
+
+
+
+
 class Info(models.Model):
     attrs = (
         '姓名',

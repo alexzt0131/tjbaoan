@@ -56,6 +56,21 @@
     text-align: right;
     overflow: hidden;
 }
+.listr1{ float:right; width:650px; height:50px; overflow:hidden; font-size:14px; border-bottom: 1px solid #eee; float: left; }
+.joinus_listr1{ float:right; width:650px; height:auto; overflow:auto; font-size:14px; margin:20px 1%; }
+.listr1 span{ display:inherit;height:30px; line-height:30px; font-size:18px; margin-bottom:10px; overflow:hidden; }
+.listr1 span i{ float:right; padding-right:10px; font-style:normal; font-size:14px;}
+.listr1 span a{ color:#0E9E40;}
+.listr1 p{ line-height:30px;}
+
+.Pages1{ overflow:hidden;  width:100%; text-align:center;  margin:0 auto; padding-top:50px; padding-bottom:30px; padding-left: 5px}
+.Pages1 a{display:inline-block;width:65px;background:#ffffff;height:48px; vertical-align:middle; line-height:48px; font-size:14px; border:1px solid #e5e5e5; margin-left:-1px; float:left;text-decoration:none; color:#333; outline:none;}
+.Pages1 a:hover{ background:#0FA74E; color:#FFF;background-repeat:no-repeat; }
+.Pages1 span{display:inline-block;min-width:45px; padding:0 10px;background:#ffffff;height:48px; vertical-align:middle; line-height:48px; font-size:14px; border:1px solid #e5e5e5; margin-left:-1px;float:left;}
+.Pages1 span.current{ background:#0FA74E; color:#FFF; _padding:0px 30px;}
+.clearfix { display: inline-table; } /* Hides from IE-mac */
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
 
 </style>
 {% endblock %}
@@ -76,16 +91,38 @@
 {#            </div>#}
 {#        </div>#}
                     <div class="sub_tit"><span>您的位置：</span><a href="index">首页</a>>{{ title }} </div>
-{#            <div class="list">#}
-{#             <div class="listpic"><img src="images/c1.jpg" width="139" height="107" /></div>#}
              <div class="register_page">
-                 {% for i in infos %}
-                     <div class="listr">
-                      <span><i>{{ i.create_date }}</i><a href="/detail?uuid={{ i.uuid }}">{{ i.name }}-{{ i.sex }}-{{ i.age }}-{{ i.graduate_institutions }}-{{ i.education_background }}</a></span>
-{#                      <p>{{ i.major }}</p>#}
+                         {% for i in infos %}
+                             <div class="listr1">
+                                <span><i>{{ i.create_date }}</i><a href="/detail?uuid={{ i.uuid }}">{{ i.name }}-{{ i.sex }}-{{ i.age }}-{{ i.graduate_institutions }}-{{ i.education_background }}</a></span>
+                             </div>
+                         {% endfor %}
+{#                         分页   #}
+                         <div class="Pages1 clearfix">
+                                {% if not infos.has_previous %}
+                                        <span disabled="true">上一页</span>
+                                {% else %}
+                                        <a href="?page={{ infos.previous_page_number }}" aria-label="Previous">上一页</a>
+                                {% endif %}
+                                <span>{{ count }} 条记录 {{ infos.number }}/{{ pages }} 页</span>
+                                {% if not infos.has_next %}
+                                    <span disabled="true">下一页</span>
+                                {% else %}
+                                    <a href="?page={{ infos.next_page_number  }}" aria-label="Previous">下一页</a>
+                                {% endif %}
+                                <a href="/info/?page={{ pages }}">末页</a>
+                         </div>
+             </div>
 
-                     </div>
-                 {% endfor %}
+        </div>
+       </div>
+
+
+
+
+
+             
+             
 
 
 

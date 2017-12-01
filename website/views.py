@@ -1,5 +1,6 @@
 import os
 
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -137,6 +138,20 @@ def info(request):
         'title': '信息列表'
     }
     infos = Info.objects.all().order_by('-create_date')
+
+    paginator = Paginator(infos, 10)
+
+    try:
+        page = int(request.GET.get('page', 1))  # 1是没有数据的默认值
+        print('page = {}'.format(page))
+        infos = paginator.page(page)
+    except (PageNotAnInteger, EmptyPage, InvalidPage):
+        infos = paginator.page(1)
+
+    ret['pages'] = infos.paginator.num_pages
+    ret['count'] = infos.paginator.count
+
+
     ret['infos'] = infos
     return render(request, 'infos.html', ret)
 
@@ -148,6 +163,27 @@ def detail(request):
     if request.method == 'GET':
         uuid = request.GET.get('uuid')
         information = Info.objects.get(uuid=uuid)
-        ret['info'] = information
+
+        retinfo = (
+            ('姓名', information.name),
+            ('性别', information.sex),
+            ('年龄', information.age),
+            ('民族', information.ethnic),
+            ('政治面貌', information.political_role),
+            ('籍贯', information.native_place),
+            ('身体状况', information.health),
+            ('身份证号', information.PID),
+            ('婚姻状况', information.marital_status),
+            ('毕业院校', information.graduate_institutions),
+            ('学历', information.education_background),
+            ('参加工作时间', information.timeofwork),
+            ('希望薪金 / 月', information.wished_salary),
+            ('联系方式', information.contact),
+            ('家庭住址', information.addr),
+        )
+
+
+
+        ret['info'] = retinfo
 
     return render(request, 'detail.html', ret)
