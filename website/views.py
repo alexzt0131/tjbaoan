@@ -4,9 +4,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
+from django.views.decorators.csrf import csrf_exempt
+
 from tjbaoan import settings
 from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATIC_FOR_VIEW
 from tools.itools import itools
+from website.models import Info
 
 
 def global_settings(request):
@@ -22,6 +25,86 @@ def global_settings(request):
     }
 
 
+
+@csrf_exempt
+def regist(request):
+    ret ={}
+
+    attrs = (
+        '姓名',
+        '性别',
+        '年龄',
+        '民族',
+        '政治面貌',
+        '籍贯',
+        '身体状况',
+        '身份证号',
+        '婚姻状况',
+        '毕业院校',
+        '学历',
+        '专业',
+        '参加工作时间',
+        '希望薪金/月',
+        '联系方式',
+        '家庭住址',
+    )
+    ret['attrs'] = attrs
+
+
+    if request.method == 'POST':
+        # print(request.POST)
+        request_attrs = request.POST
+        attrs = {
+            '姓名': '',
+            '性别': '',
+            '年龄': '',
+            '民族': '',
+            '政治面貌': '',
+            '籍贯': '',
+            '身体状况': '',
+            '身份证号': '',
+            '婚姻状况': '',
+            '毕业院校': '',
+            '学历': '',
+            '专业': '',
+            '参加工作时间': '',
+            '希望薪金/月': '',
+            '联系方式': '',
+            '家庭住址': '',
+        }
+
+        result = []
+        for key, val in attrs.items():
+            attrs[key] = request_attrs[key]
+
+
+        Info.objects.create(
+            name=attrs['姓名'].strip(),
+            sex=attrs['性别'].strip(),
+            age=attrs['年龄'].strip(),
+            ethnic=attrs['民族'].strip(),
+            political_role=attrs['政治面貌'].strip(),
+            native_place=attrs['籍贯'].strip(),
+            health=attrs['身体状况'].strip(),
+            PID=attrs['身份证号'].strip(),
+            marital_status=attrs['婚姻状况'].strip(),
+            graduate_institutions=attrs['毕业院校'].strip(),
+            education_background=attrs['学历'].strip(),
+            major=attrs['专业'].strip(),
+            timeofwork=attrs['参加工作时间'].strip(),
+            wished_salary=attrs['希望薪金/月'].strip(),
+            contact=attrs['联系方式'].strip(),
+            addr=attrs['家庭住址'].strip(),
+        )
+
+        return HttpResponse("<script>alert('信息已成功提交');window.location.href='/index';</script>")
+
+        return HttpResponse('信息已成功提交。(js为启用)')
+
+
+
+
+    return render(request, 'regist.html', ret)
 def index(request):
 
     ret = {
@@ -47,3 +130,24 @@ def join_us(request):
         lines = f.readlines()
     ret['lines'] = lines
     return render(request, 'joinus.html', ret)
+
+
+def info(request):
+    ret = {
+        'title': '信息列表'
+    }
+    infos = Info.objects.all().order_by('-create_date')
+    ret['infos'] = infos
+    return render(request, 'infos.html', ret)
+
+
+def detail(request):
+    ret = {
+        'title': '详细信息'
+    }
+    if request.method == 'GET':
+        uuid = request.GET.get('uuid')
+        information = Info.objects.get(uuid=uuid)
+        ret['info'] = information
+
+    return render(request, 'detail.html', ret)
