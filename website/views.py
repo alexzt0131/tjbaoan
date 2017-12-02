@@ -1,16 +1,40 @@
 import os
 
+from django.contrib.auth import login, logout
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
-
+from django import forms
 from tjbaoan import settings
 from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATIC_FOR_VIEW
 from tools.itools import itools
-from website.models import Info
+from website.models import Info, User
+
+
+class LogForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '用户名', 'required': 'required', }),
+                               max_length=50, error_messages={'required': 'username不能为空', })
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': '密 码', 'required': 'required', }),
+        max_length=20, error_messages={'required': 'password不能为空', })
+
+
+
+# 定义检测登录的装饰器
+def check_login(func):
+    def wrapper(request, *args, **kwargs):
+        # print('in wrapper')
+        if request.user.is_authenticated():
+            # return HttpResponseRedirect('/login/')
+            # print('shi')
+            return func(request, *args, **kwargs)
+        else:
+            # print('fou')
+            return redirect('/login/')
+    return wrapper
 
 
 def global_settings(request):
@@ -24,6 +48,71 @@ def global_settings(request):
     return {
         'CONTACT_TEL': settings.CONTACT_TEL,
     }
+
+def do_logout(request):
+    try:
+        if request.user.is_authenticated():
+            logout(request)
+            return HttpResponseRedirect('/index/')
+        else:
+            return HttpResponse("<script>alert('你还没有登录');window.history.back(-1);</script>")
+    except Exception as e:
+        print(e)
+        return HttpResponseRedirect('/index/')
+@csrf_exempt
+def do_login(request):
+    login_user = request.user.username
+    ret = {
+        'title': '登录',
+        'login_user': login_user,
+        'error': '',
+    }
+
+
+
+    lf = LogForm()
+    ret['lf'] = lf
+
+    if request.method == 'POST':
+        checkForm = LogForm(request.POST)
+        if checkForm.is_valid():
+            print(checkForm.cleaned_data['username'], checkForm.cleaned_data['password'])
+            try:
+                user = User.objects.get(username=checkForm.cleaned_data['username'])
+                if user.check_password(checkForm.cleaned_data['password']):
+                    print('passwd:{}'.format(checkForm.cleaned_data['password']))
+                    login(request, user)
+                    return HttpResponse("<script>alert('登录成功');window.location.href='/userfuncs/';</script>")
+                else:
+                    ret['error'] = '帐号或密码错误，请重新输入。'
+                    ret['lf'] = checkForm
+
+            except Exception as e:
+                print(e)
+                ret['error'] = '帐号或密码错误，请重新输入。'
+                ret['lf'] = checkForm
+
+        else:
+            errobj = checkForm.errors
+            print(type(errobj))
+
+            es = checkForm.errors.as_json()
+            print(type(es))
+            err = es.split('"')[-2]
+            print(err)
+            ret['error'] = err
+            ret['lf'] = checkForm
+
+
+    if request.method == 'POST':
+        print(request.POST)
+
+
+
+
+    return render(request, 'login.html', ret)
+
+
 
 
 
@@ -132,10 +221,12 @@ def join_us(request):
     ret['lines'] = lines
     return render(request, 'joinus.html', ret)
 
-
+@check_login
 def info(request):
+    login_user = request.user.username
     ret = {
-        'title': '信息列表'
+        'title': '信息列表',
+        'login_user': login_user,
     }
     infos = Info.objects.all().order_by('-create_date')
 
@@ -155,7 +246,7 @@ def info(request):
     ret['infos'] = infos
     return render(request, 'infos.html', ret)
 
-
+@check_login
 def detail(request):
     ret = {
         'title': '详细信息'
@@ -187,3 +278,24 @@ def detail(request):
         ret['info'] = retinfo
 
     return render(request, 'detail.html', ret)
+
+
+@check_login
+def userfuncs(request):
+    login_user = request.user.username
+    ret = {
+        'title': '用户页面',
+        'login_user': login_user,
+    }
+
+
+    if request.method == 'GET':
+        act = request.GET.get('act')
+        if act == 'logout':
+            do_logout(request)
+            return HttpResponseRedirect('/index/')
+            # return HttpResponse('logout')
+
+
+
+    return render(request, 'userfuncs.html', ret)

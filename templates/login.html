@@ -1,6 +1,6 @@
 {% extends 'basehtml.html' %}
 {% block title %}
-    {{ title }}
+{{ title }}
 {% endblock %}
 {% block css %}
 <style type="text/css">
@@ -56,13 +56,6 @@
     text-align: right;
     overflow: hidden;
 }
-.inner_container{
-{#    background-color: #0FA74E;#}
-    width: 800px;
-    height: auto;
-{#    margin-left: 10px;#}
-    line-height: 30px;
-}
 
 </style>
 {% endblock %}
@@ -73,19 +66,22 @@
     <div class="sub_cont02">
       <div class="sub_cont03">
         <div class="sider">
-
-                    <div class="sub_tit"><span>您的位置：</span><a href="/index/">首页</a>>{{ title }} </div>
+                    <div class="sub_tit"><span>您的位置：</span><a href="index">首页</a>>{{ title }}</div>
              <div class="register_page">
-                 <div class="inner_container">
-                    {% for i in info %}
-                        <div class="form_row ">
-                            <div>
-                                <label class="required">{{ i.0 }}</label>
-                                <label class="required">{{ i.1 }}</label>
-                            </div>
+                <form action="/login/" method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+
+                     <div class="form_row ">
+                        <div>
+                            {{ lf.as_p }}
                         </div>
-                    {% endfor %}
-                 </div>
+                    </div>
+                    <label>{{ error }}</label>
+
+                <div class="submit_row">
+                    <input class="input_default" type="submit" value="登录"/>
+                </div>
+                </form>
 
 
 
