@@ -1,6 +1,7 @@
 import os
 
 from django.contrib.auth import login, logout
+from django.contrib.auth.hashers import make_password
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -12,6 +13,8 @@ from tjbaoan import settings
 from tjbaoan.settings import CONTACT_TEL, COMPANY_NAME, ABOUT_US, STATIC_FOR_VIEW
 from tools.itools import itools
 from website.models import Info, User
+
+
 
 
 class LogForm(forms.Form):
@@ -35,6 +38,21 @@ def check_login(func):
             # print('fou')
             return redirect('/login/')
     return wrapper
+
+
+def adduser(request):
+    username = 'tjbaoan'
+    password = 'tjbaoan'
+    try:
+        flag = User.objects.get(username=username)
+        return HttpResponse("<script>alert('用户已存在');window.location.href='/login/';</script>")
+
+    except Exception as e:
+        User.objects.create(password=make_password(username),
+                            username=password)
+        return HttpResponse("<script>alert('成功');window.location.href='/login/';</script>")
+
+
 
 
 def global_settings(request):

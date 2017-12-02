@@ -14,8 +14,11 @@ if __name__ == '__main__':
     #                            email=checkForm.cleaned_data['email'],
     #                            password=make_password(checkForm.cleaned_data['password']))
     # user.save()
-    User.objects.create(password=make_password('alex'),
-                        username='alex')
+    username = 'tjanbao'
+    password = 'tjanbao'
+    try
+    flag = User.objects.get(username=username)
+    print(flag)
     pass
 
     # with open(STATICFILES_DIRS[0] + '/docs/zhaopin.txt') as f:
