@@ -212,3 +212,48 @@ spawned uWSGI worker 2 (pid: 9044, cores: 1)
 spawned uWSGI worker 3 (pid: 9045, cores: 1)
 spawned uWSGI worker 4 (pid: 9046, cores: 1)
 [pid: 9044|app: 0|req: 1/1] 117.61.138.217 () {44 vars in 759 bytes} [Fri Dec  1 03:41:44 2017] GET /index/ => generated 9572 bytes in 25 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Dec  3 21:35:40 2017] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-18) on 30 November 2017 22:06:18
+os: Linux-2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015
+nodename: VM_0_12_centos
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/tjbaoan
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/tjbaoan
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3871
+your memory page size is 4096 bytes
+detected max file descriptor number: 100001
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Nov 28 2017, 15:05:01)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1c4a000
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291072 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1c4a000 pid: 23663 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 23663, cores: 1)
+spawned uWSGI worker 2 (pid: 23668, cores: 1)
+spawned uWSGI worker 3 (pid: 23669, cores: 1)
+spawned uWSGI worker 4 (pid: 23670, cores: 1)
+[pid: 23663|app: 0|req: 1/1] 118.29.85.208 () {44 vars in 903 bytes} [Sun Dec  3 13:35:42 2017] GET /index/ => generated 9587 bytes in 31 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 23668|app: 0|req: 1/2] 118.29.85.208 () {44 vars in 860 bytes} [Sun Dec  3 13:35:44 2017] GET /joinus => generated 15707 bytes in 37 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 23668|app: 0|req: 2/3] 118.29.85.208 () {42 vars in 820 bytes} [Sun Dec  3 13:35:53 2017] GET /userfuncs/ => generated 4144 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+page = 1
+[pid: 23668|app: 0|req: 3/4] 118.29.85.208 () {44 vars in 862 bytes} [Sun Dec  3 13:35:55 2017] GET /info/ => generated 5998 bytes in 13 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Not Found: /logout
+[pid: 23668|app: 0|req: 4/5] 118.29.85.208 () {42 vars in 812 bytes} [Sun Dec  3 13:36:03 2017] GET /logout => generated 2922 bytes in 6 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /logout/
+[pid: 23668|app: 0|req: 5/6] 118.29.85.208 () {42 vars in 814 bytes} [Sun Dec  3 13:36:11 2017] GET /logout/ => generated 2925 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+page = 1
+[pid: 23668|app: 0|req: 6/7] 118.29.85.208 () {46 vars in 893 bytes} [Sun Dec  3 13:36:15 2017] GET /info/ => generated 5998 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 23668|app: 0|req: 7/8] 118.29.85.208 () {44 vars in 859 bytes} [Sun Dec  3 13:36:16 2017] GET /index/ => generated 9587 bytes in 5 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
