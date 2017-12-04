@@ -105,7 +105,7 @@ body{ font-family:"微软雅黑"; font-size:12px; color:#6e6e6e;min-width:1240px
 .list{ overflow:hidden; width:auto; padding:30px 0px; border-bottom:1px dashed #ccc;  height:100px; }
 .listpic{ float:left;}
 .listr{ float:right; width:650px; height:105px; overflow:hidden; font-size:14px;}
-.joinus_listr{ float:right; width:650px; height:auto; overflow:auto; font-size:14px; margin:20px 1%; }
+.joinus_listr{ float:right; width:660px; height:auto; overflow:auto; font-size:14px; margin:20px 17%; }
 .listr span{ display:inherit;height:30px; line-height:30px; font-size:18px; margin-bottom:10px; overflow:hidden; }
 .listr span i{ float:right; padding-right:10px; font-style:normal; font-size:14px;}
 .listr span a{ color:#0E9E40;}
