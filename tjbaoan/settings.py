@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ln2%&ux89m@z9+w8m&f&+d(u&yi7sw*5mje0_a3bwg!mxi15@4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+#DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -144,6 +144,6 @@ else:
 
 
 #OTHERS
-CONTACT_TEL = '022-58576280'
+CONTACT_TEL = '022-87921628'
 COMPANY_NAME = '天津消安保安服务有限公司'
 ABOUT_US = '天津消安保安服务有限公司正式成立于2016年，是一家经工商行政管理部门批准，具有法人资格，专为天津各大企事业单位、商厦、办公楼等各种高档场所及厂区提供全面保安消防安全、保洁、及绿化服务为一体的专业物业服务企业。本公司设有以消防转业人员为领导骨干，以合同制队员为主体，实行军事化，正规化，规范化管理为基本模式的新型企业专职保安消防队伍。'
