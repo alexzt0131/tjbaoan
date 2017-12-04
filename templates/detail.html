@@ -19,14 +19,24 @@
             font-size: 15px;
             border-bottom: 1px solid #eee;
         }
-.required{
+.detial_lable{
             display: block;
             padding: 4px 30px 0 0;
             float: left;
-            width: 110px;
-            line-height: 1;
+            width: 100px;
+            line-height: 2;
             text-align:left;
         }
+.detial_info{
+            display: block;
+            padding: 4px 30px 0 0;
+            float: left;
+            width: 600px;
+            line-height: 2;
+            text-align:left;
+            text
+
+}
 .reg_line label{
     margin-right: 20px;
     width: 50px;
@@ -80,8 +90,9 @@
                     {% for i in info %}
                         <div class="form_row ">
                             <div>
-                                <label class="required">{{ i.0 }}</label>
-                                <label class="required">{{ i.1 }}</label>
+                                <label class="detial_lable">{{ i.0 }}</label>
+                                <label class="detial_info">{{ i.1 }}</label>
+
                             </div>
                         </div>
                     {% endfor %}

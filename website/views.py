@@ -3,6 +3,7 @@ import os
 from django.contrib.auth import login, logout
 from django.contrib.auth.hashers import make_password
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
+from django.forms import ModelForm, Textarea, TextInput
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
@@ -23,6 +24,42 @@ class LogForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'placeholder': '密 码', 'required': 'required', }),
         max_length=20, error_messages={'required': 'password不能为空', })
+
+
+# class RegistForm(forms.Form):
+class RegistForm(ModelForm):
+    class Meta:
+        model = Info
+        fields = "__all__"
+        exclude = ('create_date', 'uuid')
+        widgets = {
+            'name': TextInput(attrs={'requeird': 'required'}),
+            # 'name': TextInput(attrs={'placeholder': 'name'}),
+        }
+
+
+
+
+        # username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '姓名', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # sex = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '性别', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # age = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '年龄', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # ethnic = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '民族', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # political_role = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '政治面貌', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # native_place = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '籍贯', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # health = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '身体状况', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # PID = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '身份证号', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # marital_status = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '婚姻状况', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # graduate_institutions = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '毕业院校', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # education_background = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '学历', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # major = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '专业', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # timeofwork = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '参加工作时间', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # wished_salary = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '希望薪金/月', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # contact = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '联系方式', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # addr = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '家庭住址', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # addr = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '家庭住址', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+    # wanttosay = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '我想说', 'required': 'required', }),max_length=50, error_messages={'required': 'username不能为空', })
+
+
 
 
 
@@ -137,6 +174,8 @@ def do_login(request):
 @csrf_exempt
 def regist(request):
     ret ={}
+    rf = RegistForm()
+
 
     attrs = (
         '姓名',
@@ -156,58 +195,129 @@ def regist(request):
         '联系方式',
         '家庭住址',
     )
+    reg_user_attrs = {
+        'education_background': '',
+        'marital_status': '',
+        'timeofwork': '',
+        'age': '',
+        'PID': '',
+        'health': '',
+        'contact': '',
+        'ethnic': '',
+        'wished_salary': '',
+        'wanttosay': '',
+        'graduate_institutions': '',
+        'political_role': '',
+        'sex': '',
+        'name': '',
+        'major': '',
+        'addr': '',
+        'native_place': '',
+    }
     ret['attrs'] = attrs
+    ret['rf'] = rf
 
 
     if request.method == 'POST':
         # print(request.POST)
         request_attrs = request.POST
-        attrs = {
-            '姓名': '',
-            '性别': '',
-            '年龄': '',
-            '民族': '',
-            '政治面貌': '',
-            '籍贯': '',
-            '身体状况': '',
-            '身份证号': '',
-            '婚姻状况': '',
-            '毕业院校': '',
-            '学历': '',
-            '专业': '',
-            '参加工作时间': '',
-            '希望薪金/月': '',
-            '联系方式': '',
-            '家庭住址': '',
-        }
+        checkForm = RegistForm(request.POST)
+        # print(checkForm.is_valid())
+        if checkForm.is_valid():
+            # print(checkForm.__dict__['cleaned_data'])
+            ret_dict = checkForm.__dict__['cleaned_data']
 
-        result = []
-        for key, val in attrs.items():
-            attrs[key] = request_attrs[key]
+            for key, val in ret_dict.items():
+                for reg_key, reg_val in reg_user_attrs.items():
+                    if reg_key == key:
+                        reg_user_attrs[reg_key] = val
+                        continue
+
+            print(reg_user_attrs)
+            try:
+                Info.objects.create(
+                    name=reg_user_attrs['name'].strip(),
+                    sex=reg_user_attrs['sex'].strip(),
+                    age=reg_user_attrs['age'].strip(),
+                    ethnic=reg_user_attrs['ethnic'].strip(),
+                    political_role=reg_user_attrs['political_role'].strip(),
+                    native_place=reg_user_attrs['native_place'].strip(),
+                    health=reg_user_attrs['health'].strip(),
+                    PID=reg_user_attrs['PID'].strip(),
+                    marital_status=reg_user_attrs['marital_status'].strip(),
+                    graduate_institutions=reg_user_attrs['graduate_institutions'].strip(),
+                    education_background=reg_user_attrs['education_background'].strip(),
+                    major=reg_user_attrs['major'].strip(),
+                    timeofwork=reg_user_attrs['timeofwork'].strip(),
+                    wished_salary=reg_user_attrs['wished_salary'].strip(),
+                    contact=reg_user_attrs['contact'].strip(),
+                    addr=reg_user_attrs['addr'].strip(),
+                    wanttosay=reg_user_attrs['wanttosay'],
+                )
+                return HttpResponse("<script>alert('信息已成功提交.');window.location.href='/index';</script>")
+            except Exception as e:
+                return HttpResponse("<script>alert('{}');window.location.href='/index';</script>".format(str(e)))
+            # print(checkForm.cleaned_data['username'], checkForm.cleaned_data['password'])
+            # try:
+            #     user = User.objects.get(username=checkForm.cleaned_data['username'])
+            #     if user.check_password(checkForm.cleaned_data['password']):
+            #         print('passwd:{}'.format(checkForm.cleaned_data['password']))
+            #         login(request, user)
+            #         return HttpResponse("<script>alert('登录成功');window.location.href='/userfuncs/';</script>")
+            #     else:
+            #         ret['error'] = '帐号或密码错误，请重新输入。'
+            #         ret['lf'] = checkForm
+            #
+            # except Exception as e:
+            #     print(e)
+            #     ret['error'] = '帐号或密码错误，请重新输入。'
+            #     ret['lf'] = checkForm
+        # attrs = {
+        #     '姓名': '',
+        #     '性别': '',
+        #     '年龄': '',
+        #     '民族': '',
+        #     '政治面貌': '',
+        #     '籍贯': '',
+        #     '身体状况': '',
+        #     '身份证号': '',
+        #     '婚姻状况': '',
+        #     '毕业院校': '',
+        #     '学历': '',
+        #     '专业': '',
+        #     '参加工作时间': '',
+        #     '希望薪金/月': '',
+        #     '联系方式': '',
+        #     '家庭住址': '',
+        # }
+        #
+        # result = []
+        # for key, val in attrs.items():
+        #     attrs[key] = request_attrs[key]
 
 
-        Info.objects.create(
-            name=attrs['姓名'].strip(),
-            sex=attrs['性别'].strip(),
-            age=attrs['年龄'].strip(),
-            ethnic=attrs['民族'].strip(),
-            political_role=attrs['政治面貌'].strip(),
-            native_place=attrs['籍贯'].strip(),
-            health=attrs['身体状况'].strip(),
-            PID=attrs['身份证号'].strip(),
-            marital_status=attrs['婚姻状况'].strip(),
-            graduate_institutions=attrs['毕业院校'].strip(),
-            education_background=attrs['学历'].strip(),
-            major=attrs['专业'].strip(),
-            timeofwork=attrs['参加工作时间'].strip(),
-            wished_salary=attrs['希望薪金/月'].strip(),
-            contact=attrs['联系方式'].strip(),
-            addr=attrs['家庭住址'].strip(),
-        )
+        # Info.objects.create(
+        #     name=attrs['姓名'].strip(),
+        #     sex=attrs['性别'].strip(),
+        #     age=attrs['年龄'].strip(),
+        #     ethnic=attrs['民族'].strip(),
+        #     political_role=attrs['政治面貌'].strip(),
+        #     native_place=attrs['籍贯'].strip(),
+        #     health=attrs['身体状况'].strip(),
+        #     PID=attrs['身份证号'].strip(),
+        #     marital_status=attrs['婚姻状况'].strip(),
+        #     graduate_institutions=attrs['毕业院校'].strip(),
+        #     education_background=attrs['学历'].strip(),
+        #     major=attrs['专业'].strip(),
+        #     timeofwork=attrs['参加工作时间'].strip(),
+        #     wished_salary=attrs['希望薪金/月'].strip(),
+        #     contact=attrs['联系方式'].strip(),
+        #     addr=attrs['家庭住址'].strip(),
+        # )
+        #
+        # return HttpResponse("<script>alert('信息已成功提交');window.location.href='/index';</script>")
 
-        return HttpResponse("<script>alert('信息已成功提交');window.location.href='/index';</script>")
-
-        return HttpResponse('信息已成功提交。(js为启用)')
+        return HttpResponse('信息已成功提交。(js未启用)')
 
 
 
@@ -246,6 +356,24 @@ def info(request):
         'title': '信息列表',
         'login_user': login_user,
     }
+
+    if request.method == 'GET':
+        act = request.GET.get('act')
+        if act == 'del':
+            try:
+                uuid = request.GET.get('uuid')
+                Info.objects.get(uuid=uuid).delete()
+                return HttpResponse("<script>alert('ID为：{}的信息已成功删除.');window.location.href='/info/';</script>".format(uuid))
+            except Exception as e:
+                print(e)
+
+
+
+
+
+
+
+
     infos = Info.objects.all().order_by('-create_date')
 
     paginator = Paginator(infos, 10)
@@ -289,6 +417,7 @@ def detail(request):
             ('希望薪金 / 月', information.wished_salary),
             ('联系方式', information.contact),
             ('家庭住址', information.addr),
+            ('自我描述', information.wanttosay),
         )
 
 

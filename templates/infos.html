@@ -8,25 +8,12 @@
 
 {#    background-color: #0EA347;#}
     height: auto;
-    width: 1000px;
+    width: 1200px;
     overflow: auto;
     line-height: 30px;
     font-size: 20px;
 }
-.form_row {
-            overflow: hidden;
-            padding: 10px;
-            font-size: 15px;
-            border-bottom: 1px solid #eee;
-        }
-.required{
-            display: block;
-            padding: 4px 30px 0 0;
-            float: left;
-            width: 110px;
-            line-height: 1;
-            text-align:left;
-        }
+
 .reg_line label{
     margin-right: 20px;
     width: 50px;
@@ -44,23 +31,12 @@
     color: #fff;
     cursor: pointer;
 }
-.input_default:hover{
-    background: #417690;
-}
-.submit_row {
-    padding: 12px 14px;
-    margin: 0 0 20px;
-    background: #f8f8f8;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    text-align: right;
-    overflow: hidden;
-}
-.listr1{ float:right; width:650px; height:50px; overflow:hidden; font-size:14px; border-bottom: 1px solid #eee; float: left; }
+
+.listr1{ float:right; width:750px; height:50px; overflow:hidden; font-size:14px; border-bottom: 1px solid #eee; float: left; }
 .joinus_listr1{ float:right; width:650px; height:auto; overflow:auto; font-size:14px; margin:20px 1%; }
 .listr1 span{ display:inherit;height:30px; line-height:30px; font-size:18px; margin-bottom:10px; overflow:hidden; }
 .listr1 span i{ float:right; padding-right:10px; font-style:normal; font-size:14px;}
-.listr1 span a{ color:#0E9E40;}
+.listr1 span a{ color: #6e6e6e;}
 .listr1 p{ line-height:30px;}
 
 .Pages1{ overflow:hidden;  width:100%; text-align:center;  margin:0 auto; padding-top:50px; padding-bottom:30px; padding-left: 5px}
@@ -71,7 +47,15 @@
 .clearfix { display: inline-table; } /* Hides from IE-mac */
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
-
+.line_del{
+    padding-left: 10px;
+}
+{#.listr1 a{#}
+{#    color: #008834;#}
+{#}#}
+.listr1 a:hover{
+    color: #5b80b2;
+}
 </style>
 {% endblock %}
 {% block body %}
@@ -94,7 +78,7 @@
              <div class="register_page">
                          {% for i in infos %}
                              <div class="listr1">
-                                <span><i>{{ i.create_date }}</i><a href="/detail?uuid={{ i.uuid }}">{{ i.name }}-{{ i.sex }}-{{ i.age }}-{{ i.graduate_institutions }}-{{ i.education_background }}</a></span>
+                                <span><i>{{ i.create_date }}<a class="line_del" href="/info/?act=del&uuid={{ i.uuid }}">删除</a></i><a href="/detail?uuid={{ i.uuid }}">{{ i.name }}-{{ i.sex }}-{{ i.age }}-{{ i.graduate_institutions }}-{{ i.education_background }}</a></span>
                              </div>
                          {% endfor %}
 {#                         分页   #}

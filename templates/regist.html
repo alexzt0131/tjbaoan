@@ -19,6 +19,17 @@
             font-size: 15px;
             border-bottom: 1px solid #eee;
         }
+.form_row li label{
+    padding: 10px 15px 10px 10px;
+    display: inline-block;
+{#    float: left;#}
+    width: 100px;
+}
+.form_row li input{
+    display: inline-block;
+{#    float: right;#}
+    width: 300px;
+}
 .required{
             display: block;
             padding: 4px 30px 0 0;
@@ -26,6 +37,11 @@
             width: 110px;
             line-height: 1;
             text-align:left;
+.special{
+    margin: 20px;
+    padding: 20px;
+    width: 100px;
+
         }
 .reg_line label{
     margin-right: 20px;
@@ -81,16 +97,29 @@
              <div class="register_page">
                 <form action="/regist/" method="post" enctype="multipart/form-data">
                  {% csrf_token %}
-                    {% for i in attrs %}
 
+{#                {% for i in rf %}#}
+{##}
                      <div class="form_row ">
                         <div>
-                            <label class="required">{{ i }}：</label>
-                            <input name={{ i }} type="text" value=""/>
+{#                            <label class="required">{{ rf.as_ul }}</label>#}
+{#                            <label class="required">{{ rf }}</label>#}
+                            {{ rf.as_ul }}
+
                         </div>
                     </div>
-
-                 {% endfor %}
+{##}
+{#                 {% endfor %}#}
+{#                    {% for i in attrs %}#}
+{##}
+{#                     <div class="form_row ">#}
+{#                        <div>#}
+{#                            <label class="required">{{ i }}：</label>#}
+{#                            <input name={{ i }} type="text" value=""/>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                 {% endfor %}#}
                 <div class="submit_row">
                     <input class="input_default" type="submit" value="提交"/>
                 </div>
