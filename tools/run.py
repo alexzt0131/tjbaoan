@@ -1,24 +1,30 @@
 import os, django
+import re
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tjbaoan.settings")# project_name 项目名称
 django.setup()
 
 from django.contrib.auth.hashers import make_password
 
 from website.models import User
-from tjbaoan.settings import BASE_DIR
-
-
+from tjbaoan.settings import BASE_DIR, STATIC_FOR_VIEW
 
 if __name__ == '__main__':
-    # user = User.objects.create(username='alex'],
-    #                            email=checkForm.cleaned_data['email'],
-    #                            password=make_password(checkForm.cleaned_data['password']))
-    # user.save()
-    username = 'tjanbao'
-    password = 'tjanbao'
-    try
-    flag = User.objects.get(username=username)
-    print(flag)
+
+
+    path = STATIC_FOR_VIEW + '/docs/zhaopin.txt'
+
+    with open(path, 'r+') as f:
+        lines = f.readlines()
+        pattern = r"^\\t$"
+        for line in lines:
+            a = re.compile(pattern=pattern)
+            print(a.sub('&nbsp;', line))
+
+        print(lines)
+
+
+
     pass
 
     # with open(STATICFILES_DIRS[0] + '/docs/zhaopin.txt') as f:
