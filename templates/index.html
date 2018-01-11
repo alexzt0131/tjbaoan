@@ -1,6 +1,45 @@
-
 {% extends 'basehtml.html' %}
 {% load static %}
+
+
+
+{% block css %}
+<style>
+{#*{margin:0;padding:0;list-style-type:none;}#}
+{#img,a{border:0;}#}
+.piccon{height:75px;margin:10px 0 0 10%;}
+.piccon li{float:left;padding:0 10px;}
+#preview{position:absolute;border:1px solid #ccc;background:#333;padding:5px;display:none;color:#fff;}
+.certificate_scrollable{ overflow:hidden; width:1100px; margin:0 auto; padding-bottom:30px;}
+{#.certificate_scrollable ul { padding:0; _margin-left:-5px !important; list-style:none; overflow:hidden; width:100%;}#}
+.certificate_scrollable ul li {padding:0px; margin:0 2%;_margin:0 10px; display:block; float:left; width:250px; }
+{#.certificate_scrollable ul li p a { display:block;}#}
+{#.certificate_scrollable ul li img { display:block;-webkit-transition:all 0.3s ease-out 0s; -moz-transition:all 0.3s ease-out 0s; -o-transition:all 0.3s ease-out 0s; transition:all 0.3s ease-out 0s; }#}
+{#.certificate_scrollable ul li p { margin-bottom:10px; overflow:hidden;#}
+{#	-webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1);#}
+{#	-o-transform: scale(1); transform: scale(1);#}
+{#	-webkit-transition: all 0.3s ease-out 0s;  -moz-transition: all 0.3s ease-out 0s;#}
+{#	-o-transition: all 0.3s ease-out 0s;  transition: all 0.3s ease-out 0s;  }#}
+{#.certificate_scrollable ul li p a:hover img{transform: scale(1.2, 1.2);#}
+{# 	-webkit-transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2);#}
+{#  	-o-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2);#}
+{##}
+{#	-webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s;#}
+{#	-o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }#}
+{#.certificate_scrollable ul li h2 { font-size:14px; margin-bottom:10px; line-height:22px; height:22px; overflow:hidden;}#}
+{#.certificate_scrollable ul li h2 a { font-size:14px; font-weight:normal; color:#333;}#}
+{#.certificate_scrollable ul li h2 a:hover { color:#df3d3e; text-decoration:none; }#}
+{#.certificate_scrollable .carousel-direction a { width:32px; height:32px; line-height:32px; margin-top:0; top:97px; color:#fff; font-size:22px; background-color:#df3d3e; }#}
+{#.certificate_scrollable .carousel-direction a:hover { background-color:#333; }#}
+{#.certificate_scrollable .carousel-direction a.disabled, .scrollable .carousel-direction a.disabled:hover { color:#e5e5e5; background-color:transparent; }#}
+{#.certificate_scrollable-3col ul li { width:313px; text-align:center; }#}
+{#.certificate_scrollable-3col ul li p { margin-bottom:15px; color:#fff;line-height:24px; }#}
+{#.certificate_scrollable-3col ul li h2, .scrollable-3col ul li h2 a { font-size:16px; font-weight:normal; margin-bottom:0;color:#fff;font-family:"寰蒋闆呴粦"; }#}
+{#.certificate_scrollable-3col .carousel-direction a:hover { background-color:#1a1a1a; }#}
+
+</style>
+{% endblock %}
+
 
 {% block body %}
 
@@ -34,6 +73,27 @@
   </div>
   <div class="clear"></div>
 </div>
+
+
+     <div class="sidebox-content1">
+      <div class="sidebox-content1-tit">
+          <a name="证书展示"></a>
+         <h2>证书展示</h2>
+          <div class="sidebox-content1-tit-icon">
+             <h3><em>CERTIFICATE</em></h3>
+          </div>
+       </div>
+       <div class="certificate_scrollable ">
+{#       <div class="scrollable ">#}
+           <ul class="piccon">
+                <li><a href="" rel="{% static 'images/certificate/certificate1 - 副本.jpg' %}" class="preview"><img src="{% static 'images/certificate/certificate1 - 副本.jpg' %}" alt="画廊缩略图" width="200" height="275" /></a></li>
+                <li><a href="" rel="{% static 'images/certificate/certificate2 - 副本.jpg' %}" class="preview"><img src="{% static 'images/certificate/certificate2 - 副本.jpg' %}" alt="画廊缩略图" width="200" height="275" /></a></li>
+                <li><a href="" rel="{% static 'images/certificate/certificate3 - 副本.jpg' %}" class="preview"><img src="{% static 'images/certificate/certificate3 - 副本.jpg' %}" alt="画廊缩略图" width="200" height="275" /></a></li>
+            </ul>
+           </div>
+       </div>
+
+
  <div class="sidebox-content1">
       <div class="sidebox-content1-tit">
          <h2>集团业务</h2>
@@ -42,6 +102,7 @@
           </div>
        </div>
   </div>
+
   <div class="busines03">
   <div class="partFourM">
   <div class="left"><img src="{% static 'images/jj.png' %}" alt="向左" class="ctrl" /></div>
@@ -63,6 +124,7 @@
 </div>
 </div>
 </div>
+
  <div class="sidebox-content1">
       <div class="sidebox-content1-tit">
           <a name="新闻中心"></a>
@@ -95,6 +157,13 @@
     </div>
 </div>
 </div>
+
+
+
+
+
+
+
  <div class="sidebox-content1">
       <div class="sidebox-content1-tit">
           <a name="案例展示"></a>
