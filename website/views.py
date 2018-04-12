@@ -333,7 +333,7 @@ def index(request):
     }
 
     rootdir = STATIC_FOR_VIEW + '/images/xuanchuan/'  # 指明被遍历的文件夹
-    caseShowPicsDir = STATIC_FOR_VIEW + '/images/xuanchuan/'  # 指明被遍历的文件夹
+    caseShowPicsDir = STATIC_FOR_VIEW + '/images/caseshow/'  # 指明被遍历的文件夹
     # rootdir = STATIC_ROOT + '/images/xuanchuan/'  # 指明被遍历的文件夹
     # print(rootdir)
     # print(os.path.exists(rootdir))
