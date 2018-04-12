@@ -333,12 +333,15 @@ def index(request):
     }
 
     rootdir = STATIC_FOR_VIEW + '/images/xuanchuan/'  # 指明被遍历的文件夹
+    caseShowPicsDir = STATIC_FOR_VIEW + '/images/xuanchuan/'  # 指明被遍历的文件夹
     # rootdir = STATIC_ROOT + '/images/xuanchuan/'  # 指明被遍历的文件夹
     # print(rootdir)
     # print(os.path.exists(rootdir))
     file_names = itools.retrive(rootdir=rootdir)['files']
+    caseShowPics = itools.retrive(rootdir=caseShowPicsDir)['files']
 
     ret['file_names'] = file_names
+    ret['caseShowPics'] = caseShowPics
     return render(request, 'index.html', ret)
 
 def join_us(request):
