@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^login/$', views.do_login),
     url(r'^userfuncs/$', views.userfuncs),
     url(r'^adduser/$', views.adduser),
+    url(r'^rongyu/$', views.rongyu),
 ]
 
 

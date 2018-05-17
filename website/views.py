@@ -395,6 +395,27 @@ def info(request):
     ret['infos'] = infos
     return render(request, 'infos.html', ret)
 
+
+
+def rongyu(request):
+    ret = {
+        'title': '荣誉资质',
+        'pic': None
+    }
+
+    ids = ['images/certificate/certificate1 - 副本.jpg',
+           'images/certificate/certificate2 - 副本.jpg',
+           'images/certificate/certificate3 - 副本.jpg'
+           ]
+    if request.GET:
+        if request.GET.get('id'):
+            id = request.GET.get('id')
+            ret['pic'] = ids[int(id) - 1]
+
+
+
+    return render(request, 'rongyu.html', ret)
+
 @check_login
 def detail(request):
     ret = {
